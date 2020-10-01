@@ -1,0 +1,134 @@
+:root {
+  --vermelho: #e50914;
+  --preta: #141414;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--preta);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  color: white;
+}
+
+header .container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+header .logo {
+  margin-left: 5px;
+  color: var(--vermelho);
+  font-family: 'Arial Black';
+  font-size: 40px;
+}
+
+header nav a {
+  text-decoration: none;
+  color: #aaa;
+  margin-right: 10px;
+}
+
+header nav a:hover {
+  color: #fff;
+}
+
+.filme-principal {
+  font-weight: 16px;
+  background: linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    url('../img/capa-greys.jpg');
+  height: 400px;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.filme-principal .descricao {
+  margin-bottom: 40px;
+  margin-top: 10px;
+}
+
+.titulo {
+  margin-top: 15%;
+  font-size: 40px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
+
+.botao {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 15px 30px;
+  margin-right: 15px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.3s ease all;
+}
+
+.botao:hover {
+  background-color: white;
+  color: black;
+}
+
+.botao i {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.container {
+  margin-left: 20px;
+}
+
+.filme-principal .container {
+  width: 70%;
+}
+
+.box-filme {
+  height: 100%;
+  width: 100%;
+  display: block;
+  cursor: pointer;
+}
+
+.carrosel-filmes {
+  margin-top: 5px;
+}
+
+header img {
+  margin-right: 1.5em;
+  height: 80px;
+}
+
+/* RESPONSIVIDADE */
+
+@media screen and (max-width: 700px) {
+  header .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .botao {
+    margin-top: 5px;
+    width: 300px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .descricao {
+    width: 50%;
+  }
+}
