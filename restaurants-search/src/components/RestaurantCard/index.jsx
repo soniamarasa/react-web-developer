@@ -1,19 +1,28 @@
-import React from 'react';
-import ReactStars from 'react-rating-stars-component'
+import React, { useState } from 'react';
+import ReactStars from 'react-rating-stars-component';
+import Skeleton from '../Skeleton';
 
-import restaurante from '../../assets/restaurante-fake.png'
+import { Restaurant, RestaurantInfo, RestaurantPhoto, Title, Address } from './styles';
 
-import { Restaurant, RestaurantInfo, RestaurantPhoto, Title, Address} from './styles';
+const RestaurantCard = ({ restaurant, onClick }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
 
-const RestaurantCard = () => (
-<Restaurant>
-    <RestaurantInfo>
-        <Title> Nome </Title>
-        <ReactStars count={5} isHalf value={4} edit={false} activeColor="#e7711c"/>
-        <Address> Endereço </Address>
-    </RestaurantInfo>
-    <RestaurantPhoto src={restaurante} alt="foto do restaurante" />
-</Restaurant>
-);
+  return (
+    <Restaurant onClick={onClick}>
+      <RestaurantInfo>
+        <Title> {restaurant.name} </Title>
+        <ReactStars count={5} isHalf value={restaurant.rating} edit={false} activeColor="#e7711c" />
+        <Address> {restaurant.vicinity || restaurant.formatted_address} </Address>
+      </RestaurantInfo>
+      <RestaurantPhoto
+        imageLoaded={imageLoaded}
+        src={restaurant.photos ? restaurant.photos[0].getUrl() : restaurant}
+        onLoad={() => setImageLoaded(true)}
+        alt="foto do restaurante"
+      />
+      {!imageLoaded && <Skeleton width="100px" height="100px" />}
+    </Restaurant>
+  );
+};
 
 export default RestaurantCard;
