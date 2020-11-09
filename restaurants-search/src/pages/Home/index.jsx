@@ -57,7 +57,7 @@ const Home = () => {
             label="Pesquisar Restaurantes"
             outlined
             trailingIcon={<MaterialIcon role="button" icon="search" />}>
-            <Input value={inputValue} onkeyPress={handleKeyPress} onChange={handleChange} />
+            <Input value={inputValue} onKeyPress={handleKeyPress} onChange={handleChange} />
           </TextField>
           {restaurants.length > 0 ? (
             <>
@@ -78,6 +78,7 @@ const Home = () => {
         </Search>
         {restaurants.map((restaurant) => (
           <RestaurantCard
+            key={restaurant.place_id}
             onClick={() => handleOpenModal(restaurant.place_id)}
             restaurant={restaurant}
           />
